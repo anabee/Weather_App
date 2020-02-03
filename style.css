@@ -1,0 +1,25 @@
+div {
+    text-align: center;
+    /* border-style: solid;
+    border-width: 1px;
+    border-color: black; */
+}
+
+body{
+    background-image: linear-gradient(to right, #008B8B , #4682B4);
+    color: white;
+}
+
+/* .container-fluid{
+    background-color: white;
+} */
+
+button{
+    border-radius: 15px;
+    margin: 5px;
+}
+
+input {
+    margin: 5px;
+    border-radius: 5px;
+}
