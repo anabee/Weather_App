@@ -25,7 +25,7 @@ function searchWeather(city){
         function changeTemp(){
             var feren = parseFloat(response.main.temp)
             var convertTemp = Math.round((feren-273.15)*1.8 +32) 
-            temperature.text("Temperature: "+convertTemp+'&deg;')
+            temperature.text("Temperature: "+convertTemp+"°F")
           }
           changeTemp()
 
