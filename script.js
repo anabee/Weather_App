@@ -14,14 +14,20 @@ function searchWeather(city){
 
         var weatherImg = $("<img>")
         $(".citySpecifics").append(weatherImg)
-        var imgURL = "http://openweathermap.org/img/wn/"+iconID+"@2x.png"
-        var iconID = (response.weather[0].icon)
-        console.log(response.weather.icon)
+        var iconID = (JSON.stringify(response.weather[0].icon))
+        var iconIdSubS = JSON.parse(iconID)
+        var imgURL = "http://openweathermap.org/img/wn/"+iconIdSubS+"@2x.png"
         $(weatherImg).attr("src", imgURL)
 
         var temperature = $("<div>")
         $(".citySpecifics").append(temperature)
-        temperature.text("Temperature: " +response.main.temp)
+
+        function changeTemp(){
+            var feren = parseFloat(response.main.temp)
+            var convertTemp = Math.round((feren-273.15)*1.8 +32) 
+            temperature.text("Temperature: "+convertTemp+'&deg;')
+          }
+          changeTemp()
 
         var humidity = $("<div>")
         $(".citySpecifics").append(humidity)
