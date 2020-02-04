@@ -40,10 +40,14 @@ function searchWeather(city){
         // need UV Index
         })
 }
+
+
 $(".searchBtn").on("click", function(event){
     event.preventDefault();
 
     var city = $("#cityInput").val().trim();
 
     searchWeather(city);
+    getForecast(city);
+    // will need to add second function to this button call
 })
