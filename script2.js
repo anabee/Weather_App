@@ -9,7 +9,7 @@ function getForecast(city){
         
         // DAY 1 **************************************
         // NEED TO ADD DATE 
-        var str = [0,4,8,12,16]
+        var str = [0,8,16,24,32]
         for (let i = 0; i < str.length; i++) {
         
             var weatherImgForecast = $("<img>")

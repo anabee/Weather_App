@@ -84,7 +84,18 @@ $(".searchBtn").on("click", function(event){
 
     var city = $("#cityInput").val().trim();
 
+    // Gets the current weather for the city 
     searchWeather(city);
+    // Gets the 5 day forecast 
     getForecast(city);
-    // will need to add second function to this button call
+    // Adds a button with the city name
+    addCityBtn();
 })
+
+function addCityBtn (){
+     
+    var newCityBtn = $("<button>")
+    $(".storedWeather").append(newCityBtn)
+    $(newCityBtn).text($("#cityInput").val().trim())
+
+}
