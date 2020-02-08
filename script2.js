@@ -12,7 +12,7 @@ function getForecast(city){
         for (let i = 0; i < str.length; i++) {
 
         var forecastDate = $("<div>")
-        forecastDate.text(moment(). add(i+1,'days'). format('MM-DD-YYYY'))
+        forecastDate.text(moment(). add(i+1,'days'). format("MMM Do YY"))
         $("#"+str[i]).append(forecastDate)
         
         var weatherImgForecast = $("<img>")

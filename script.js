@@ -1,14 +1,11 @@
 function searchWeather(city){
 
-
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=aa5b71088d417c59bb0ed00cd6cfe06e"
 
     $.ajax({
         url: queryURL,
         method: "GET"
       }).then(function(response){
-
-        // $(".citySpecifics").css({"border": "0.5px solid", "border-color": "black"})
 
         // CITY NAME 
         var cityNameDiv = $("<div>")
@@ -110,7 +107,6 @@ function saveCityName (city){
         
         localStorage.setItem("cities", JSON.stringify(savedCities))
         console.log(savedCities)
-
 }
 
 function displaySearchedCities(){
@@ -122,11 +118,10 @@ function displaySearchedCities(){
 
     citiesToSave = JSON.parse(localStorage.getItem("cities"))
     console.log(citiesToSave)
+    if (citiesToSave === null){return}
 
 for (let btnLoad = 0; btnLoad < citiesToSave.length; btnLoad++) {
     if (citiesToSave === null){
-        // **************************************
-       console.log("not sure")
     } else {
         var saveCityBtn = $("<button>")
         $(".storedWeather").append(saveCityBtn)
