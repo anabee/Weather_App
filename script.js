@@ -93,9 +93,6 @@ $(".searchBtn").on("click", function(event){
     // Adds a button with the city name
     saveCityName(city);
     addCityBtn(city);
-
-
-    
 })
 
 
@@ -103,7 +100,6 @@ function addCityBtn (city){
     var newCityBtn = $("<button>")
     $(".storedWeather").append(newCityBtn)
     $(newCityBtn).text(city)
-
 }
 
 var savedCities = []
@@ -117,29 +113,34 @@ function saveCityName (city){
 
 }
 
-
-
-
-
 function displaySearchedCities(){
 // onload function & need to get stuff from local getItem & check whether there is anything there if null... need new array from whats in local storage 
 // for(i=0;i<=savedCities.length;i++){
 //     addCityBtn(savedCities[i])
 // }
+    var citiesToSave = []
 
-for (let btnLoad = 0; btnLoad < savedCities.length; btnLoad++) {
-    if (savedCities === null){
-        conxole.log("im running")
-        // var saveCityBtn = $("<button>")
-        // $(".storedWeather").append(saveCityBtn)
-        // $(saveCityBtn).text(city)
+    citiesToSave = JSON.parse(localStorage.getItem("cities"))
+    console.log(citiesToSave)
+
+for (let btnLoad = 0; btnLoad < citiesToSave.length; btnLoad++) {
+    if (citiesToSave === null){
+        // **************************************
+       console.log("not sure")
     } else {
-        // var saveCityBtn = $("<button>")
-        // $(".storedWeather").append(savedCities[i])
-        // $(saveCityBtn).text(city)
-        console.log("Working?")
+        var saveCityBtn = $("<button>")
+        $(".storedWeather").append(saveCityBtn)
+        $(saveCityBtn).text(citiesToSave[btnLoad])
+
+        $(saveCityBtn).on("click", function(event){
+            event.preventDefault();
+            console.log("hello?")
+            var city = citiesToSave[btnLoad];
+        
+            searchWeather(city);
+            getForecast(city);
+        })
     }
-    
 }
 }
 
