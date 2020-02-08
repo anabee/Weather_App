@@ -8,6 +8,8 @@ function searchWeather(city){
         method: "GET"
       }).then(function(response){
 
+        // $(".citySpecifics").css({"border": "0.5px solid", "border-color": "black"})
+
         // CITY NAME 
         var cityNameDiv = $("<div>")
         $(".citySpecifics").append(cityNameDiv)
@@ -63,7 +65,7 @@ function searchWeather(city){
                 if (response.value <=2){
                     uvInd.css({"background-color": "green"})
                 } else if ( response.value <=5){
-                    uvInd.css({"background-color": "yellow"})
+                    uvInd.css({"background-color": "yellow", "color": "black"})
                 } else if (response.value <=7){
                     uvInd.css({"background-color": "orange"})
                 } else if (response.value <=10){
@@ -81,7 +83,7 @@ function searchWeather(city){
 
 $(".searchBtn").on("click", function(event){
     event.preventDefault();
-
+    
     var city = $("#cityInput").val().trim();
 
     // Gets the current weather for the city 
@@ -89,13 +91,56 @@ $(".searchBtn").on("click", function(event){
     // Gets the 5 day forecast 
     getForecast(city);
     // Adds a button with the city name
-    addCityBtn();
+    saveCityName(city);
+    addCityBtn(city);
+
+
+    
 })
 
-function addCityBtn (){
-     
+
+function addCityBtn (city){
     var newCityBtn = $("<button>")
     $(".storedWeather").append(newCityBtn)
-    $(newCityBtn).text($("#cityInput").val().trim())
+    $(newCityBtn).text(city)
 
 }
+
+var savedCities = []
+
+function saveCityName (city){
+
+        savedCities.push(city)
+        
+        localStorage.setItem("cities", JSON.stringify(savedCities))
+        console.log(savedCities)
+
+}
+
+
+
+
+
+function displaySearchedCities(){
+// onload function & need to get stuff from local getItem & check whether there is anything there if null... need new array from whats in local storage 
+// for(i=0;i<=savedCities.length;i++){
+//     addCityBtn(savedCities[i])
+// }
+
+for (let btnLoad = 0; btnLoad < savedCities.length; btnLoad++) {
+    if (savedCities === null){
+        conxole.log("im running")
+        // var saveCityBtn = $("<button>")
+        // $(".storedWeather").append(saveCityBtn)
+        // $(saveCityBtn).text(city)
+    } else {
+        // var saveCityBtn = $("<button>")
+        // $(".storedWeather").append(savedCities[i])
+        // $(saveCityBtn).text(city)
+        console.log("Working?")
+    }
+    
+}
+}
+
+$(document).ready(displaySearchedCities)

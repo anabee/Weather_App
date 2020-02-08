@@ -24,3 +24,14 @@ input {
     margin: 5px;
     border-radius: 5px;
 }
+
+.citySpecifics {
+    border: solid;
+    border-width: 0.5px;
+    padding: 2px;
+}
+
+.boxes {
+    border-right: 1px dashed;
+    border-left: 1px dashed;
+}
