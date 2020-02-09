@@ -136,7 +136,6 @@ for (let btnLoad = 0; btnLoad < citiesToSave.length; btnLoad++) {
 
         $(saveCityBtn).on("click", function(event){
             event.preventDefault();
-            console.log("hello?")
             var city = citiesToSave[btnLoad];
         
             searchWeather(city);
