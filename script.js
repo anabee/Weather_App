@@ -1,4 +1,9 @@
+var holdingDiv
+
 function searchWeather(city){
+
+    holdingDiv = $("<div>")
+    $(".citySpecifics").append(holdingDiv)
 
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=aa5b71088d417c59bb0ed00cd6cfe06e"
 
@@ -9,12 +14,12 @@ function searchWeather(city){
 
         // CITY NAME 
         var cityNameDiv = $("<div>")
-        $(".citySpecifics").append(cityNameDiv)
+        $(holdingDiv).append(cityNameDiv)
         cityNameDiv.text(response.name +" "+ moment().format("MMM Do YY"))
 
         // WEATHER ICON
         var weatherImg = $("<img>")
-        $(".citySpecifics").append(weatherImg)
+        $(holdingDiv).append(weatherImg)
         var iconID = (JSON.stringify(response.weather[0].icon))
         var iconIdSubS = JSON.parse(iconID)
         var imgURL = "http://openweathermap.org/img/wn/"+iconIdSubS+"@2x.png"
@@ -22,7 +27,7 @@ function searchWeather(city){
 
         // TEMPERATURE AND CONVERSION FORMULA
         var temperature = $("<div>")
-        $(".citySpecifics").append(temperature)
+        $(holdingDiv).append(temperature)
 
         function changeTemp(){
             var feren = parseFloat(response.main.temp)
@@ -33,12 +38,12 @@ function searchWeather(city){
 
         // HUMIDITY 
         var humidity = $("<div>")
-        $(".citySpecifics").append(humidity)
+        $(holdingDiv).append(humidity)
         humidity.text("Humidity: " +response.main.humidity+"%")
 
         // WIND SPEED 
         var windSpeed = $("<div>")
-        $(".citySpecifics").append(windSpeed)
+        $(holdingDiv).append(windSpeed)
         windSpeed.text("Wind Speed: " +response.wind.speed+" MPH")
 
         //UV INDEX
@@ -56,7 +61,7 @@ function searchWeather(city){
               }).then(function(response){
 
                 var uvInd = $("<div>")
-                $(".citySpecifics").append(uvInd)
+                $(holdingDiv).append(uvInd)
                 uvInd.text("UV Index: "+response.value)
 
                 if (response.value <=2){
@@ -90,6 +95,8 @@ $(".searchBtn").on("click", function(event){
     // Adds a button with the city name
     saveCityName(city);
     addCityBtn(city);
+
+    holdingDiv.empty()
 })
 
 
