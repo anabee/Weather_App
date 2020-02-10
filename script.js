@@ -96,7 +96,7 @@ $(".searchBtn").on("click", function(event){
     saveCityName(city);
     addCityBtn(city);
 
-    holdingDiv.empty()
+    // holdingDiv.empty()
 })
 
 
@@ -140,9 +140,13 @@ for (let btnLoad = 0; btnLoad < citiesToSave.length; btnLoad++) {
         
             searchWeather(city);
             getForecast(city);
-        })
+        })  
     }
 }
+holdingDiv = $("<div>")
+$(".citySpecifics").append(holdingDiv)
+$(holdingDiv).text(searchWeather(citiesToSave[citiesToSave.length-1]))
+$("#0").text(getForecast(citiesToSave[citiesToSave.length-1]))
 }
 
 $(document).ready(displaySearchedCities)

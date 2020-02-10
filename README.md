@@ -40,4 +40,4 @@ This function allows for each day listed to have a day added based on the curren
 
 Every time the user seaches for a specific city, the city they seached for is saved as a button. This information is saved using localStorage. When the user clicks on any of the buttons, the same ajax calls will be amde again and the curre3nt werather data and forecast will be shown for the city selected. 
 
-When the user refreshes the page they will see the buttons on their screen of past searches. 
+When the user refreshes the page they will see the buttons on their screen of past searches. They will also see the current weather for the last city they seached for along with the 5 day forecast for that location. 

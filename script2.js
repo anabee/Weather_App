@@ -1,4 +1,9 @@
 function getForecast(city){
+    $("#0").empty()
+    $("#8").empty()
+    $("#16").empty()
+    $("#24").empty()
+    $("#32").empty()
 
     var queryURLForcast = "https://api.openweathermap.org/data/2.5/forecast?q="+city+"&appid=aa5b71088d417c59bb0ed00cd6cfe06e"
 
@@ -8,7 +13,7 @@ function getForecast(city){
     }).then(function(response){
         
         // NEED TO ADD DATE 
-        var str = [0,8,16,24,32]
+        str = [0,8,16,24,32]
         for (let i = 0; i < str.length; i++) {
 
         var forecastDate = $("<div>")
