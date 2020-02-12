@@ -1,5 +1,8 @@
 # Weather_App
 
+<img width="971" alt="Screen Shot 2020-02-11 at 5 24 34 PM" src="https://user-images.githubusercontent.com/42880531/74294639-61cfe580-4cf3-11ea-83da-190b0323a7d1.png">
+
+
 For this weataher app, I decided to start with getting my ajax calls together. I first went to the open weather api and got the url for the current weather (https://openweathermap.org/current). This ajax call function can be found on the script.js file. 
 
 Once I got the correct url I set up an ajax function to call the following information:
