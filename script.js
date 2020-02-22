@@ -53,7 +53,7 @@ function searchWeather(city){
            var lat = latOut
            var lon = lonOut
 
-            var queryURLuv = "http://api.openweathermap.org/data/2.5/uvi?appid=aa5b71088d417c59bb0ed00cd6cfe06e&lat="+lat+"&lon="+lon
+            var queryURLuv = "https://api.openweathermap.org/data/2.5/uvi?appid=aa5b71088d417c59bb0ed00cd6cfe06e&lat="+lat+"&lon="+lon
 
             $.ajax({
                 url: queryURLuv,
